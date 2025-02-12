@@ -86,15 +86,32 @@ words = text.split() # Predefinirana vrijednost po kojoj se dijeli tekst na manj
 
 # Procititi tekst prije obrade
 # 2. nacin
+
+# 3. nacin Ante Džepina - uporaba translacijske tabele tako sto znakove iz prvog stringa ('.!,?')
+#       translatira u znakove iz drugog stringa ('    ') - oba stringa moraju biti iste duzine
+str_translate_table = str.maketrans('.!,?', '    ')
+
+'''
+Zato jer translate zamijeni znak s drugim i obvezna je identicna duzina stringova,
+ako smo koristili zamjenu razmakom, tada moramo koristiti metodu strip() na tekstualnoj varijabli
+
+'text'.strip() -> 'text'
+'    text     '.strip() -> 'text'
+'    text     '.rstrip() -> '    text'
+
+'''
+
 for word in words:
     index = words.index(word)
-
-    word = word.replace('.', '')
-    word = word.replace(',', '')
+    word = word.translate(str_translate_table)
+    word = word.strip()
     word = word.lower()
 
-    words[index] = word
+    # word = word.replace('.', '')
+    # word = word.replace(',', '')
+    # word = word.lower()
 
+    words[index] = word
 
 
 while True:
