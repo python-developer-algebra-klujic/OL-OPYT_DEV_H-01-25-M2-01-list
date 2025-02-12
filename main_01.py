@@ -1,9 +1,14 @@
 
-# indeksi  0  1  2
+# indeksi  0  1  2  3  4  5  6   7   8   9
 numbers = [1, 2, 3, 5, 1, 3, 89, 12, 65, 23]
 
 first_number = numbers[0]
 print(first_number)
+
+index = numbers.index(12) # vratit ce vrijednost indeksa 7 sto je index lokacije na kojoj
+                            #je pohranjen element liste 12
+numbers[index] = 15
+numbers[7] = 15
 
 second_number = numbers[1]
 print(second_number)
