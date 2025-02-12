@@ -1,3 +1,6 @@
+import os
+
+
 text = '''
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 Sed lacinia lectus a tristique varius. Curabitur auctor sem sed luctus dapibus. 
@@ -53,6 +56,12 @@ Curabitur nec justo et dolor iaculis congue eget ac nulla.
 Phasellus commodo maximus rutrum. Suspendisse potenti.
 '''
 
+# Procititi tekst prije obrade
+# 1. nacin
+# text = text.replace('.', '')
+# text = text.replace(',', '')
+# text = text.lower()
+
 words = text.split() # Predefinirana vrijednost po kojoj se dijeli tekst na manje elemente je razmak
 # print(words)
 
@@ -62,8 +71,44 @@ words = text.split() # Predefinirana vrijednost po kojoj se dijeli tekst na manj
 # words_count = len(words)
 # print(f'U tekstu ima {words_count} rijeci.')
 
-search_word = input('Upisite rijec koju zelite prebrojati u tekstu: ')
-search_word_count = text.count(search_word)
-print(f'Rijec {search_word} se u tekstu pojavljuje {search_word_count} puta.')
+# search_word = input('Upisite rijec koju zelite prebrojati u tekstu: ')
+# search_word_count = text.count(search_word)
+# print(f'Rijec {search_word} se u tekstu pojavljuje {search_word_count} puta.')
+
+# search_word = input('Upisite rijec koju zelite prebrojati u tekstu: ')
+# search_word_count = 0
+# for word in words:
+#     if word.lower() == search_word.lower():
+#         search_word_count += 1
+
+# print(f'Rijec {search_word} se u tekstu pojavljuje {search_word_count} puta.')
 
 
+# Procititi tekst prije obrade
+# 2. nacin
+for word in words:
+    index = words.index(word)
+
+    word = word.replace('.', '')
+    word = word.replace(',', '')
+    word = word.lower()
+
+    words[index] = word
+
+
+
+while True:
+    os.system('cls')
+
+    search_word = input('Upisite rijec koju zelite prebrojati u tekstu: ')
+    search_word_count = 0
+    for word in words:
+        if word == search_word:
+            search_word_count += 1
+
+    print(f'Rijec {search_word} se u tekstu pojavljuje {search_word_count} puta.')
+    print()
+
+    next_word = input('Zelite li potraziti novu rijec? (da/ne): ')
+    if next_word.lower() != 'da':
+        break
