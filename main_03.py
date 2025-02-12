@@ -53,3 +53,17 @@ Curabitur nec justo et dolor iaculis congue eget ac nulla.
 Phasellus commodo maximus rutrum. Suspendisse potenti.
 '''
 
+words = text.split() # Predefinirana vrijednost po kojoj se dijeli tekst na manje elemente je razmak
+# print(words)
+
+# words_counter = 0
+# for word in words:
+#     words_counter += 1
+# words_count = len(words)
+# print(f'U tekstu ima {words_count} rijeci.')
+
+search_word = input('Upisite rijec koju zelite prebrojati u tekstu: ')
+search_word_count = text.count(search_word)
+print(f'Rijec {search_word} se u tekstu pojavljuje {search_word_count} puta.')
+
+
